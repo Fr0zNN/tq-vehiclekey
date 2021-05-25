@@ -46,7 +46,7 @@ AddEventHandler("tq-vehiclekey:client:arabayikilitlememlazim", function(plaka)
 							SetVehicleDoorShut(vehicles[i], 2, false)
 							SetVehicleDoorShut(vehicles[i], 3, false)
 							SetVehicleDoorsLocked(vehicles[i], 2)
-							TriggerServerEvent("InteractSound_SV:PlayWithinDistance", 10, "lock", 1.0)
+							TriggerEvent('InteractSound_CL:PlayOnOne', 'lock', 0.2)
 							TriggerEvent('mythic_notify:client:SendAlert', { type = 'error', text = 'Araç kilitlendi.'})
 							if not IsPedInAnyVehicle(PlayerPedId(), true) then
 								TaskPlayAnim(PlayerPedId(), animdict, "exit", 8.0, 8.0, -1, 48, 1, false, false, false)
@@ -60,7 +60,7 @@ AddEventHandler("tq-vehiclekey:client:arabayikilitlememlazim", function(plaka)
 							SetVehicleLights(vehicles[i], 0)
 						elseif lock == 2 then
 							SetVehicleDoorsLocked(vehicles[i], 1)
-							TriggerServerEvent("InteractSound_SV:PlayWithinDistance", 10, "unlock", 1.0)
+							TriggerEvent('InteractSound_CL:PlayOnOne', 'unlock', 0.2)
 							TriggerEvent('mythic_notify:client:SendAlert', { type = 'inform', text = 'Araç açıldı.'})
 							if not IsPedInAnyVehicle(PlayerPedId(), true) then
 								TaskPlayAnim(PlayerPedId(), animdict, "exit", 8.0, 8.0, -1, 48, 1, false, false, false)
